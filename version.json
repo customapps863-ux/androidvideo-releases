@@ -1,7 +1,7 @@
 {
-  "versionCode": 355,
-  "versionName": "2.2.215",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.215/AndroidVideo.apk",
-  "changelog": "v2.2.215\n• Primer release en la cuenta nueva (customapps863-ux): enlaces compartidos, verificación de App Links y auto-update apuntan al host/repo nuevos.\n• Mismo keystore de firma → la actualización se instala sobre la versión anterior sin perder datos.",
+  "versionCode": 356,
+  "versionName": "2.2.216",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.216/AndroidVideo.apk",
+  "changelog": "v2.2.216",
   "required": false
 }
