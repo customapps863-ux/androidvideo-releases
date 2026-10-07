@@ -1,0 +1,97 @@
+name: Sonda IPTV (medición para el worker)
+
+# FASE 0 del plan del worker (docs/PLAN_CLOUD_WORKER.md en el repo del código).
+#
+# Mide LA trampa nº1 antes de construir nada encima: ¿los paneles IPTV aceptan la IP de un runner de
+# GitHub, que es un rango de datacenter? Sin eso, todo el plan se cae.
+#
+# Corre en el repo PÚBLICO a propósito: ahí los minutos de Actions son ilimitados y gratis, así que no toca
+# la cuota de 2000 min/mes de los repos privados.
+#
+# ─── SOBRE LO QUE SE VE ─────────────────────────────────────────────────────────────────────────────────
+# En un repo público **el archivo del workflow y sus logs son públicos**, y no hay ajuste para ocultarlos.
+# Por eso:
+#
+#  1. La FUENTE DE LAS LISTAS no está escrita acá: viene del secreto `IPTV_LISTS_URL` (Ajustes → Secrets and
+#     variables → Actions). Los secretos se enmascaran solos en los logs y no se entregan a los PR de forks.
+#  2. El job **sólo imprime agregados**: cuántas listas respondieron y con qué código. Ni hosts, ni usuarios,
+#     ni ids de stream, con `::add-mask::` como defensa en profundidad.
+#
+# Ojo con lo que los secretos NO arreglan: el id del proyecto de Firebase viaja dentro del APK publicado, y
+# `config/iptv` es de lectura pública. Mientras esa regla siga así, cualquiera que abra un APK puede leer las
+# listas. Cerrar eso es una tarea aparte (reglas de Firestore + service account para el worker).
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Cada 6 horas, para ver si el resultado es estable o si el panel empieza a bloquear.
+    - cron: '17 */6 * * *'
+
+concurrency:
+  group: sonda-iptv
+  cancel-in-progress: false
+
+jobs:
+  sonda:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Sondear los paneles (sólo agregados)
+        env:
+          LISTS_URL: ${{ secrets.IPTV_LISTS_URL }}
+        shell: python3 {0}
+        run: |
+          import json, os, urllib.request, urllib.parse, ssl
+          from collections import Counter
+          url = os.environ.get("LISTS_URL", "").strip()
+          if not url:
+              print("Falta el secreto IPTV_LISTS_URL (la URL REST que devuelve las listas).")
+              print("Ajustes → Secrets and variables → Actions → New repository secret.")
+              raise SystemExit(1)
+          docs = json.load(urllib.request.urlopen(url, timeout=30)).get("documents", [])
+          def sv(f, k): return f.get(k, {}).get("stringValue", "")
+          ctx = ssl.create_default_context(); ctx.check_hostname = False; ctx.verify_mode = ssl.CERT_NONE
+          UA = {"User-Agent": "okhttp/4"}
+          q = urllib.parse.quote
+          def code(u, rango=False):
+              h = dict(UA)
+              if rango: h["Range"] = "bytes=0-512"
+              try:
+                  return str(urllib.request.urlopen(urllib.request.Request(u, headers=h), timeout=20, context=ctx).status)
+              except urllib.error.HTTPError as e: return str(e.code)
+              except Exception as e: return type(e).__name__
+          auths, lives = Counter(), Counter()
+          total = 0
+          for x in docs:
+              f = x["fields"]
+              base = sv(f, "server_port").rstrip("/")
+              accs = f.get("accounts", {}).get("arrayValue", {}).get("values", [])
+              if not base or not accs: continue
+              total += 1
+              print(f"::add-mask::{urllib.parse.urlparse(base).netloc}")
+              a = accs[0]["mapValue"]["fields"]
+              us = a.get("user", {}).get("stringValue", ""); pw = a.get("password", {}).get("stringValue", "")
+              for v in (us, pw):
+                  if v: print(f"::add-mask::{v}")
+              try:
+                  ui = json.load(urllib.request.urlopen(
+                      urllib.request.Request(f"{base}/player_api.php?username={q(us)}&password={q(pw)}", headers=UA),
+                      timeout=20, context=ctx)).get("user_info", {})
+                  auths[f"auth={ui.get('auth')}"] += 1
+                  if str(ui.get("auth")) != "1": continue
+              except Exception as e:
+                  auths[f"error:{type(e).__name__}"] += 1
+                  continue
+              try:
+                  st = json.load(urllib.request.urlopen(
+                      urllib.request.Request(f"{base}/player_api.php?username={q(us)}&password={q(pw)}&action=get_live_streams", headers=UA),
+                      timeout=40, context=ctx))
+                  lives[code(f"{base}/live/{q(us)}/{q(pw)}/{st[0]['stream_id']}.ts", rango=True) if st else "catálogo vacío"] += 1
+              except Exception as e:
+                  lives[f"error:{type(e).__name__}"] += 1
+          print(f"\nlistas Xtream con cuenta: {total}")
+          print(f"autenticación:  {dict(auths)}")
+          print(f"canal en vivo:  {dict(lives)}")
+          ok = sum(v for k, v in lives.items() if k.startswith("2"))
+          print(f"\nRESULTADO: {ok} de {total} listas reprodujeron un canal desde la IP del runner.")
+          print("Si es ~0 y desde casa funciona, el panel bloquea datacenter y el worker no sirve para bajar catálogos.")
