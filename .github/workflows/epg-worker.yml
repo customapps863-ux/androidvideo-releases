@@ -168,27 +168,37 @@ jobs:
           ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
           # Key de TMDB (v3) para resolver los ids de los títulos. Opcional: sin ella el paso avisa y sigue.
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          # CDN de GitHub (jsDelivr): además de Firestore, el worker deja cada catálogo como
+          # `{tag}_{tipo}.{hash}.gz` acá, dentro del checkout público, y el paso de commit los sube. La app
+          # los baja de jsDelivr (gratis, sin tope) y usa Firestore de fallback. Ver docs/FIREBASE_ESCALA.md.
+          CDN_OUT_DIR: publico/cdn/iptv/catalog
         run: java -jar iptv-core/build/libs/worker.jar --tarea=guia --estado=publico/estado/worker.json
 
       # KEEPALIVE + página de salud. Se commitea SÓLO cuando cambia el día: un commit diario alcanza para que
       # GitHub no apague el cron (60 días sin actividad) y no llena el historial con cuatro commits por día.
       # El archivo no tiene datos sensibles: cantidades y tiempos, ningún host ni usuario.
-      - name: Guardar el estado del worker en el repo (una vez por día)
+      - name: Guardar el estado del worker y los catálogos del CDN en el repo
         if: always()
         working-directory: publico
         run: |
-          [ -f estado/worker.json ] || { echo "sin estado que guardar"; exit 0; }
-          DIA_NUEVO=$(python3 -c "import json;print(json.load(open('estado/worker.json')).get('dia',''))")
-          DIA_VIEJO=$(git show HEAD:estado/worker.json 2>/dev/null | python3 -c "import json,sys;print(json.load(sys.stdin).get('dia',''))" 2>/dev/null || echo "")
-          if [ "$DIA_NUEVO" = "$DIA_VIEJO" ]; then echo "mismo día ($DIA_NUEVO): no se commitea"; exit 0; fi
           git config user.name "worker"; git config user.email "worker@users.noreply.github.com"
-          git add estado/worker.json
-          git commit -q -m "Estado del worker: $DIA_NUEVO" || { echo "nada que commitear"; exit 0; }
+          # ESTADO (keepalive del cron): sólo cuando cambia el día, para no llenar el historial con cuatro
+          # commits diarios. Un commit diario alcanza para que GitHub no apague el cron (60 días sin actividad).
+          if [ -f estado/worker.json ]; then
+            DIA_NUEVO=$(python3 -c "import json;print(json.load(open('estado/worker.json')).get('dia',''))")
+            DIA_VIEJO=$(git show HEAD:estado/worker.json 2>/dev/null | python3 -c "import json,sys;print(json.load(sys.stdin).get('dia',''))" 2>/dev/null || echo "")
+            if [ "$DIA_NUEVO" != "$DIA_VIEJO" ]; then git add estado/worker.json; echo "estado: día nuevo ($DIA_NUEVO)"; else echo "estado: mismo día ($DIA_NUEVO)"; fi
+          fi
+          # CATÁLOGOS DEL CDN: los catálogos se refrescan a diario, así que se commitean SIEMPRE que haya
+          # cambios (los nombres llevan el hash: sólo cambian los archivos de las listas que cambiaron).
+          git add cdn/ 2>/dev/null || true
+          if git diff --cached --quiet; then echo "nada que commitear"; exit 0; fi
+          git commit -q -m "worker: estado + catálogos del CDN ($(date -u +%F))" || { echo "nada que commitear"; exit 0; }
           # main pudo avanzar entre el checkout y ahora (release que reescribe version.json, edición del
           # workflow, otra corrida): reintentar con rebase para no fallar con non-fast-forward.
           for intento in 1 2 3; do
-            if git push -q; then echo "estado commiteado ($DIA_NUEVO)"; exit 0; fi
+            if git push -q; then echo "commiteado"; exit 0; fi
             echo "push rechazado (main avanzó) → rebase y reintento $intento"
             git pull -q --rebase --autostash origin main || true
           done
-          echo "no se pudo pushear el estado tras 3 intentos (no bloquea el worker)"; exit 0
+          echo "no se pudo pushear tras 3 intentos (no bloquea el worker)"; exit 0
