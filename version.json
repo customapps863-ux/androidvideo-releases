@@ -1,7 +1,7 @@
 {
-  "versionCode": 359,
-  "versionName": "2.2.219",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.219/AndroidVideo.apk",
-  "changelog": "Versión 2.2.219 (359)",
+  "versionCode": 360,
+  "versionName": "2.2.220",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.220/AndroidVideo.apk",
+  "changelog": "Versión 2.2.220\n\n• Scrapers por DNS-over-HTTPS (AdGuard): saltan bloqueos de DNS del ISP/box, así\n  las webs (cinecalidad, Anikoto, Doramasflix, GoLive, Hackstore, lamovie, etc.)\n  cargan aunque el DNS del aparato bloquee el dominio. Arregla también el chequeo\n  de disponibilidad que marcaba fuentes 'sin servicio' por error en los boxes.\n• Caché local del catálogo IPTV a 1 día (antes 1 semana); el respaldo en la nube\n  sigue en 21 días.",
   "required": false
 }
