@@ -1,7 +1,7 @@
 {
-  "versionCode": 361,
-  "versionName": "2.2.221",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.221/AndroidVideo.apk",
-  "changelog": "Versión 2.2.221 (361)\n\n• IPTV: \"Megasports\" ya no se agrupa como espejo de \"Mega\" (y los cambios de\n  exclude del diccionario ahora invalidan las cachés de espejos).\n• IPTV: política de espejos \"original primero\" — el espejo arranca sólo si el\n  original falla; evita el salto de canal al abrir.\n• Reproductor: libera el player anterior antes de construir el nuevo. Baja\n  mucho el uso de memoria en zapeo en vivo (Native 285→49 MB), clave para los\n  TV box de poca RAM.\n• Inmersivo: al entrar la guía completa ya no salta de canal ni de categoría\n  (se preserva el zapeo en vuelo y el selector se ancla por nombre).",
+  "versionCode": 362,
+  "versionName": "2.2.222",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.222/AndroidVideo.apk",
+  "changelog": "v2.2.222\n\n• Nuevo source: Cuevana3 (cuevana3r.pro) — películas y series, con servidores por idioma (Latino/Subtitulado/Multilenguaje/Castellano) y calidad CAM/HD.\n• Favoritos/vistos: sincronización consolidada en un doc por tipo (menos lecturas de Firestore) con migración automática del formato viejo.\n• Favoritos: el mismo título de varias fuentes se agrupa en una tarjeta y abre la vista para elegir dónde verlo (resolución de tmdbId mejorada, con búsqueda TMDB en vivo de respaldo).",
   "required": false
 }
