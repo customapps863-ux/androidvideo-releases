@@ -1,7 +1,7 @@
 {
-  "versionCode": 362,
-  "versionName": "2.2.222",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.222/AndroidVideo.apk",
-  "changelog": "v2.2.222\n\n• Nuevo source: Cuevana3 (cuevana3r.pro) — películas y series, con servidores por idioma (Latino/Subtitulado/Multilenguaje/Castellano) y calidad CAM/HD.\n• Favoritos/vistos: sincronización consolidada en un doc por tipo (menos lecturas de Firestore) con migración automática del formato viejo.\n• Favoritos: el mismo título de varias fuentes se agrupa en una tarjeta y abre la vista para elegir dónde verlo (resolución de tmdbId mejorada, con búsqueda TMDB en vivo de respaldo).",
+  "versionCode": 363,
+  "versionName": "2.2.223",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.223/AndroidVideo.apk",
+  "changelog": "• Cuevana: fila \"Películas\" (antes \"Recientes\") desde /peliculas, confiable y coherente con su \"Ver más\"\n• Cuevana: carruseles \"Películas en tendencia\" y \"Series en tendencia\"\n• Cuevana: chips de filtro rápido por género, separados para películas y series\n• Cuevana: calidad (CAM/HD) en cards y ficha, y búsqueda arreglada (/explorar)\n• Android Auto (audio): soporte de RADIO — el servicio expone un árbol navegable (Radios → grupos → emisoras, y Música)\n• Radios: mini-player persistente con botón de cerrar, corta al abrir otro contenido, y sección \"Música\"\n• Inmersivo: salto de espejo más rápido cuando un canal en vivo se congela\n• Sincronización: menos lecturas de Firestore por arranque (playback, vistos y estado de canal por revisión)\n• Eventos: el estado de los canales-evento queda sólo local (no sube/baja a Firestore)\n• tmdb: mejor normalización para deduplicar la cola del worker",
   "required": false
 }
