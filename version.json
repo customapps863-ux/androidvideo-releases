@@ -1,7 +1,7 @@
 {
-  "versionCode": 363,
-  "versionName": "2.2.223",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.223/AndroidVideo.apk",
-  "changelog": "• Cuevana: fila \"Películas\" (antes \"Recientes\") desde /peliculas, confiable y coherente con su \"Ver más\"\n• Cuevana: carruseles \"Películas en tendencia\" y \"Series en tendencia\"\n• Cuevana: chips de filtro rápido por género, separados para películas y series\n• Cuevana: calidad (CAM/HD) en cards y ficha, y búsqueda arreglada (/explorar)\n• Android Auto (audio): soporte de RADIO — el servicio expone un árbol navegable (Radios → grupos → emisoras, y Música)\n• Radios: mini-player persistente con botón de cerrar, corta al abrir otro contenido, y sección \"Música\"\n• Inmersivo: salto de espejo más rápido cuando un canal en vivo se congela\n• Sincronización: menos lecturas de Firestore por arranque (playback, vistos y estado de canal por revisión)\n• Eventos: el estado de los canales-evento queda sólo local (no sube/baja a Firestore)\n• tmdb: mejor normalización para deduplicar la cola del worker",
+  "versionCode": 364,
+  "versionName": "2.2.224",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.224/AndroidVideo.apk",
+  "changelog": "• Búsqueda en todas las fuentes más rápida: las listas IPTV ya indexadas muestran resultados al instante y los de la nube se suman después, sin esperar a todo\n• Menos consumo de datos/lecturas: la lista de cuentas IPTV ya no se reconsulta en cada búsqueda ni en cada apertura (sólo cuando corresponde por su vigencia)",
   "required": false
 }
