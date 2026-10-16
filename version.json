@@ -1,7 +1,7 @@
 {
-  "versionCode": 364,
-  "versionName": "2.2.224",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.224/AndroidVideo.apk",
-  "changelog": "• Búsqueda en todas las fuentes más rápida: las listas IPTV ya indexadas muestran resultados al instante y los de la nube se suman después, sin esperar a todo\n• Menos consumo de datos/lecturas: la lista de cuentas IPTV ya no se reconsulta en cada búsqueda ni en cada apertura (sólo cuando corresponde por su vigencia)",
+  "versionCode": 365,
+  "versionName": "2.2.225",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.225/AndroidVideo.apk",
+  "changelog": "v2.2.225\n\n- TV en vivo: la lista de espejos de cada canal se ordena por los que mejor te andan a vos, sin importar en qué lista estén.\n- Inicio: abre mostrando \"Continuar viendo\" arriba (ya no hay que desplazar hacia arriba).\n- TV en vivo: si un canal tardaba en traer sus espejos, el reintento ya no pisa el espejo bueno que cargó mientras tanto.\n- Menos consumo de datos: el estado de las cuentas IPTV se guarda en caché y ya no se reconsulta en cada apertura.",
   "required": false
 }
