@@ -1,16 +1,16 @@
 {
   "codigo": 0,
-  "lastRun": 1792288636760,
-  "listasSinRespuesta": 8,
-  "limpieza": "config/iptv/guide: 0 de 1 · config/iptv/catalog: 0 de 411 · iptv_status: 0 de 1414 · iptv_usage: 0 de 428",
-  "duracionMs": 3195363,
-  "espejosCanales": 357,
+  "lastRun": 1792374715595,
+  "listasSinRespuesta": 10,
+  "limpieza": "config/iptv/guide: 0 de 1 · config/iptv/catalog: 0 de 423 · iptv_status: 0 de 1414 · iptv_usage: 0 de 418",
+  "duracionMs": 2787642,
+  "espejosCanales": 355,
   "tmdbCodigo": 0,
-  "catalogosPublicados": 8,
+  "catalogosPublicados": 11,
   "by": "worker",
-  "guiaCanales": 358,
+  "guiaCanales": 356,
   "listas": 63,
   "cuentas": 1405,
-  "dia": "2026-10-18",
-  "catalogosFrescos": 103
+  "dia": "2026-10-19",
+  "catalogosFrescos": 96
 }
