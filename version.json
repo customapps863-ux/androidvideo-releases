@@ -1,7 +1,7 @@
 {
-  "versionCode": 365,
-  "versionName": "2.2.225",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.225/AndroidVideo.apk",
-  "changelog": "v2.2.225\n\n- TV en vivo: la lista de espejos de cada canal se ordena por los que mejor te andan a vos, sin importar en qué lista estén.\n- Inicio: abre mostrando \"Continuar viendo\" arriba (ya no hay que desplazar hacia arriba).\n- TV en vivo: si un canal tardaba en traer sus espejos, el reintento ya no pisa el espejo bueno que cargó mientras tanto.\n- Menos consumo de datos: el estado de las cuentas IPTV se guarda en caché y ya no se reconsulta en cada apertura.",
+  "versionCode": 366,
+  "versionName": "2.2.226",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.226/AndroidVideo.apk",
+  "changelog": "• Casting: los VOD de scrapers (Hackstore, etc.) ya no se congelan buffering — el proxy descarga varios segmentos en paralelo cuando la fuente lo permite (IPTV sigue en una conexión).\n• Pantalla completa: el fondo de la ventana es negro (no el azul de la app) en las vistas de vídeo.\n• Worker TMDB: resolución concurrente con ritmo global y más throughput por corrida, con backoff ante 429/5xx.",
   "required": false
 }
