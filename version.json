@@ -1,7 +1,7 @@
 {
-  "versionCode": 366,
-  "versionName": "2.2.226",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.226/AndroidVideo.apk",
-  "changelog": "• Casting: los VOD de scrapers (Hackstore, etc.) ya no se congelan buffering — el proxy descarga varios segmentos en paralelo cuando la fuente lo permite (IPTV sigue en una conexión).\n• Pantalla completa: el fondo de la ventana es negro (no el azul de la app) en las vistas de vídeo.\n• Worker TMDB: resolución concurrente con ritmo global y más throughput por corrida, con backoff ante 429/5xx.",
+  "versionCode": 367,
+  "versionName": "2.2.227",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.227/AndroidVideo.apk",
+  "changelog": "• Espejos: al \"Buscar espejos por IP\" ahora elegís con qué cuenta probar (lista desplegable) y podés forzar aunque esté caída en el servidor principal — para recuperar espejos cuando el principal murió.\n• Inmersivo: menos cambios de espejo \"solos\" cuando un canal en vivo sólo rebufferea un rato; mientras carga el catálogo de espejos ya no dice \"tardó demasiado\"; y al elegir un espejo a mano se quita el pin viejo.\n• Descargas: mucho más rápidas en fuentes sin límite de conexión (baja varios segmentos en paralelo).",
   "required": false
 }
