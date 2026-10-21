@@ -168,6 +168,7 @@ jobs:
           ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
           # Key de TMDB (v3) para resolver los ids de los títulos. Opcional: sin ella el paso avisa y sigue.
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          VIRUSTOTAL_API_KEY: ${{ secrets.VIRUSTOTAL_API_KEY }}
           # CDN de GitHub (jsDelivr): además de Firestore, el worker deja cada catálogo como
           # `{tag}_{tipo}.{hash}.gz` acá, dentro del checkout público, y el paso de commit los sube. La app
           # los baja de jsDelivr (gratis, sin tope) y usa Firestore de fallback. Ver docs/FIREBASE_ESCALA.md.
