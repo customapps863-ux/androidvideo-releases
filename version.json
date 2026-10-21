@@ -1,7 +1,7 @@
 {
-  "versionCode": 367,
-  "versionName": "2.2.227",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.227/AndroidVideo.apk",
-  "changelog": "• Espejos: al \"Buscar espejos por IP\" ahora elegís con qué cuenta probar (lista desplegable) y podés forzar aunque esté caída en el servidor principal — para recuperar espejos cuando el principal murió.\n• Inmersivo: menos cambios de espejo \"solos\" cuando un canal en vivo sólo rebufferea un rato; mientras carga el catálogo de espejos ya no dice \"tardó demasiado\"; y al elegir un espejo a mano se quita el pin viejo.\n• Descargas: mucho más rápidas en fuentes sin límite de conexión (baja varios segmentos en paralelo).",
+  "versionCode": 368,
+  "versionName": "2.2.228",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.228/AndroidVideo.apk",
+  "changelog": "• Listas IPTV: nueva acción \"Cambiar servidor principal\" — elegís un espejo guardado (o tipeás un servidor) y pasa a ser el servidor base de la lista; el viejo queda como espejo y las cuentas se conservan. Antes sólo se podía cuando el worker detectaba el cambio de dominio.",
   "required": false
 }
