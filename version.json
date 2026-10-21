@@ -1,7 +1,7 @@
 {
-  "versionCode": 368,
-  "versionName": "2.2.228",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.228/AndroidVideo.apk",
-  "changelog": "• Listas IPTV: nueva acción \"Cambiar servidor principal\" — elegís un espejo guardado (o tipeás un servidor) y pasa a ser el servidor base de la lista; el viejo queda como espejo y las cuentas se conservan. Antes sólo se podía cuando el worker detectaba el cambio de dominio.",
+  "versionCode": 369,
+  "versionName": "2.2.229",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.229/AndroidVideo.apk",
+  "changelog": "• Listas IPTV: si el servidor de una lista se cae, la app cambia sola a un espejo que funcione (sin preguntar). Los espejos los descubre el worker por IP y los deja listos como respaldo; el teléfono elige el que de verdad anda.",
   "required": false
 }
