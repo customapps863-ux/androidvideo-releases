@@ -1,7 +1,7 @@
 {
-  "versionCode": 369,
-  "versionName": "2.2.229",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.229/AndroidVideo.apk",
-  "changelog": "• Listas IPTV: si el servidor de una lista se cae, la app cambia sola a un espejo que funcione (sin preguntar). Los espejos los descubre el worker por IP y los deja listos como respaldo; el teléfono elige el que de verdad anda.",
+  "versionCode": 370,
+  "versionName": "2.2.230",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.230/AndroidVideo.apk",
+  "changelog": "• IPTV: nuevo carrusel \"Te puede gustar\" al abrir una película o serie (10 títulos al azar de la misma categoría).\n• Reproducción: el botón \"Ver siguiente\" ahora aparece desde el 75% del episodio (antes 85%).",
   "required": false
 }
