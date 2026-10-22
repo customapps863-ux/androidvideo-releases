@@ -1,7 +1,7 @@
 {
-  "versionCode": 370,
-  "versionName": "2.2.230",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.230/AndroidVideo.apk",
-  "changelog": "• IPTV: nuevo carrusel \"Te puede gustar\" al abrir una película o serie (10 títulos al azar de la misma categoría).\n• Reproducción: el botón \"Ver siguiente\" ahora aparece desde el 75% del episodio (antes 85%).",
+  "versionCode": 371,
+  "versionName": "2.2.231",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.231/AndroidVideo.apk",
+  "changelog": "• Rendimiento en TV box: los boxes de Android plano (2–3 GB) ahora usan el modo liviano (menos memoria, sin congelarse).\n• Menos presión de memoria: se libera caché de imágenes/navegador cuando el sistema lo pide.\n• Arreglo interno del servicio de carátulas/IDs (worker).",
   "required": false
 }
