@@ -1,7 +1,7 @@
 {
-  "versionCode": 371,
-  "versionName": "2.2.231",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.231/AndroidVideo.apk",
-  "changelog": "• Rendimiento en TV box: los boxes de Android plano (2–3 GB) ahora usan el modo liviano (menos memoria, sin congelarse).\n• Menos presión de memoria: se libera caché de imágenes/navegador cuando el sistema lo pide.\n• Arreglo interno del servicio de carátulas/IDs (worker).",
+  "versionCode": 372,
+  "versionName": "2.2.232",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.232/AndroidVideo.apk",
+  "changelog": "• Inmersivo: abre más rápido (los eventos ya no retrasan la carga inicial en cada arranque).\n• Casting: se arregla el corte sin código en películas/series con audio doble (vimeos y otros scrapers).\n• Espejos de canal: se dejan de ofrecer feeds de otros países (África/Asia/Europa no hispana) y se corrigen agrupaciones mal (Canal 13 vs Canal 13 C, Nick JR, TVE, HTV, Latina, etc.).\n• Carátulas/IDs: menos títulos sin encontrar en TMDB (años/calidad/estudio que ensuciaban la búsqueda).",
   "required": false
 }
