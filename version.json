@@ -1,7 +1,7 @@
 {
-  "versionCode": 372,
-  "versionName": "2.2.232",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.232/AndroidVideo.apk",
-  "changelog": "• Inmersivo: abre más rápido (los eventos ya no retrasan la carga inicial en cada arranque).\n• Casting: se arregla el corte sin código en películas/series con audio doble (vimeos y otros scrapers).\n• Espejos de canal: se dejan de ofrecer feeds de otros países (África/Asia/Europa no hispana) y se corrigen agrupaciones mal (Canal 13 vs Canal 13 C, Nick JR, TVE, HTV, Latina, etc.).\n• Carátulas/IDs: menos títulos sin encontrar en TMDB (años/calidad/estudio que ensuciaban la búsqueda).",
+  "versionCode": 373,
+  "versionName": "2.2.233",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.233/AndroidVideo.apk",
+  "changelog": "• Espejos por país: un canal nacional (Canal 13, Mega, VTV, TVN, La Red, Latina, ATV) ya no ofrece como espejo el canal del mismo nombre de OTRO país.\n• TNT Sports: 'El Canal del Fútbol' (Ecuador) ya no se mezcla con el chileno (CDF = TNT Sports Chile).\n• Hackstore: ahora ofrece 'Ver siguiente' y los botones ⏮/⏭ entre episodios.\n• Listas: 'Chile (gratis)' ya no aparece duplicada.\n• Reproducción directa: no cambia de espejo mientras el canal está descargando (espera a que arranque).",
   "required": false
 }
