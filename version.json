@@ -1,7 +1,7 @@
 {
-  "versionCode": 374,
-  "versionName": "2.2.234",
-  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.234/AndroidVideo.apk",
-  "changelog": "• Anime: nuevas fuentes TioAnime y Jkanime (apagadas por defecto). TioAnime con reproducción, Películas y Mega como descarga; Jkanime con buscador arreglado, carruseles y anti-bloqueo.\n• Kwa (anime): apagado por defecto (reproducción bloqueada por el DRM nuevo del server); sync migrado.\n• TV box: menos consumo de memoria y fin del cierre al entrar a Eventos (caché de ficha TMDB + liberación en el handoff).",
+  "versionCode": 375,
+  "versionName": "2.2.235",
+  "apkUrl": "https://github.com/customapps863-ux/androidvideo-releases/releases/download/v2.2.235/AndroidVideo.apk",
+  "changelog": "mejora tv",
   "required": false
 }
