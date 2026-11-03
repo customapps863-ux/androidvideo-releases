@@ -142,7 +142,6 @@ jobs:
           project_id: android-video-7bdcc
           workload_identity_provider: ${{ vars.WIF_PROVIDER }}
           service_account: ${{ vars.WIF_SA }}
-          token_format: access_token
 
       - name: Armar y subir la ventana de EPG
         env:
