@@ -164,7 +164,7 @@ jobs:
         if: always()
         env:
           FIRESTORE_PROJECT: android-video-7bdcc
-          ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+          ACCESS_TOKEN: adc
           # Key de TMDB (v3) para resolver los ids de los títulos. Opcional: sin ella el paso avisa y sigue.
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
           VIRUSTOTAL_API_KEY: ${{ secrets.VIRUSTOTAL_API_KEY }}
